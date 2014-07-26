@@ -13,8 +13,9 @@ WORKDIR ..
 RUN rm -rf redis-2.8.11
 
 ADD redis.conf /etc/redis.conf
+ADD start.sh /usr/local/bin/redis_start
+RUN chmod +x /usr/local/bin/redis_start
 
-EXPOSE      6379
+EXPOSE 6379
 
-ENTRYPOINT  ["/usr/local/bin/redis-server"]
-CMD ["/etc/redis.conf"]
+CMD ["/usr/local/bin/redis_start"]

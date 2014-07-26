@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$REDIS_PASSWORD" ]; then
+if ! [ -z "$REDIS_PASSWORD" ]; then
   echo 'requirepass $REDIS_PASSWORD' >> /etc/redis.conf
 fi
 
